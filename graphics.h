@@ -14,7 +14,7 @@
 
 typedef struct point {int x,y;} point;
 
-typedef Uint32 COULEUR;
+typedef Uint32 couleur;
 
 typedef int BOOL;
 
@@ -34,24 +34,25 @@ void affiche_auto_off();
 void affiche_all();
 void synchro();
 
-COULEUR couleur_RGB(int r, int g, int b);
+couleur couleur_RGB(int r, int g, int b);
 
 point get_mouse();
 void wait_escape();
 point wait_clic();
 
-void fill_screen(COULEUR color);
-void draw_pixel(point p, COULEUR color);
-void draw_line(point p1, point p2, COULEUR color);
-void draw_rectangle(point p1, point p2, COULEUR color);
-void draw_fill_rectangle(point p1, point p2, COULEUR color);
-void draw_circle(point centre, int rayon, COULEUR color);
-void draw_fill_circle(point centre, int rayon, COULEUR color);
-void draw_square(point p1, int taille, COULEUR color);
-void draw_fill_square(point p1, int taille, COULEUR color);
+void fill_screen(couleur color);
+void draw_pixel(point p, couleur color);
+void draw_line(point p1, point p2, couleur color);
+void draw_rectangle(point p1, point p2, couleur color);
+void draw_fill_rectangle(point p1, point p2, couleur color);
+void draw_circle(point centre, int rayon, couleur color);
+void draw_fill_circle(point centre, int rayon, couleur color);
+void draw_square(point p1, int taille, couleur color);
+void draw_fill_square(point p1, int taille, couleur color);
+void draw_cross(point p, int taille, couleur color);
 
-void aff_pol(char *a_ecrire, int taille, point p, COULEUR C);
-void aff_int(int n, int taille, point p, COULEUR C);
+void aff_pol(char *a_ecrire, int taille, point p, couleur C);
+void aff_int(int n, int taille, point p, couleur C);
 
 void attendre(int millisecondes);
 

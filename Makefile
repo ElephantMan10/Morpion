@@ -37,7 +37,7 @@ exemple: exemple.c graphics.o
 
 jeu: jeu.c jeu.o
 	$(CC) $(CFLAGS) -c jeu.c
-	$(CC) $(CFLAGS) graphics.o jeu.o main.c -o puissance4 $(LIBS)
+	$(CC) $(CFLAGS) graphics.o jeu.o main.c -o morpion $(LIBS)
 
 tar: clean
 	rm -rf $(DIR)

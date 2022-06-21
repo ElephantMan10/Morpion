@@ -91,8 +91,8 @@ void affiche_all() {
 
 void synchro() { affiche_all(); }
 
-COULEUR couleur_RGB(int r, int g, int b) {
-	COULEUR C;
+couleur couleur_RGB(int r, int g, int b) {
+	couleur C;
 	return ((r%256)<<16) + ((g%256)<<8) + (b%256);
 	return C;
 }
@@ -195,11 +195,11 @@ point wait_clic() {
 	return P;
 }
 
-void fill_screen(COULEUR color) {
+void fill_screen(couleur color) {
 	int i,j;
 	for (i=0;i<WIDTH;i++)
 		for (j=0;j<HEIGHT;j++) 
-            *((COULEUR *)SDL_screen->pixels + (HEIGHT-j-1) * WIDTH + i) = color;
+            *((couleur *)SDL_screen->pixels + (HEIGHT-j-1) * WIDTH + i) = color;
 	if (SDL_AFFICHE_AUTO) 
         affiche_all();
 }
@@ -212,14 +212,14 @@ int dans_ecran(int x, int y) {
 	return 1;
 }
 
-#define add_pix(x,y,color)  if (dans_ecran((x),(y))) *((COULEUR *)SDL_screen->pixels + (HEIGHT-(y)-1) * WIDTH + (x)) = (color)
+#define add_pix(x,y,color)  if (dans_ecran((x),(y))) *((couleur *)SDL_screen->pixels + (HEIGHT-(y)-1) * WIDTH + (x)) = (color)
 
-void draw_pixel(point p, COULEUR color) {
+void draw_pixel(point p, couleur color) {
 	add_pix(p.x,p.y,color);
 	if (SDL_AFFICHE_AUTO) affiche_all();
 }
 
-void draw_line(point p1, point p2, COULEUR color) {
+void draw_line(point p1, point p2, couleur color) {
 	int xmin, xmax;
 	int ymin, ymax;
 	int i,j;
@@ -258,7 +258,7 @@ void draw_line(point p1, point p2, COULEUR color) {
 	if (SDL_AFFICHE_AUTO) affiche_all();
 }
 
-void draw_rectangle(point p1, point p2, COULEUR color) {
+void draw_rectangle(point p1, point p2, couleur color) {
 	int xmin, xmax;
 	int ymin, ymax;
 	int i,j;
@@ -274,7 +274,7 @@ void draw_rectangle(point p1, point p2, COULEUR color) {
 	if (SDL_AFFICHE_AUTO) affiche_all();
 }
 
-void draw_fill_rectangle(point p1, point p2, COULEUR color) {
+void draw_fill_rectangle(point p1, point p2, couleur color) {
 	int xmin, xmax;
 	int ymin, ymax;
 	int i,j;
@@ -286,7 +286,7 @@ void draw_fill_rectangle(point p1, point p2, COULEUR color) {
 	if (SDL_AFFICHE_AUTO) affiche_all();
 }
 
-void draw_circle(point centre, int rayon, COULEUR color) {
+void draw_circle(point centre, int rayon, couleur color) {
 	point min, max;
 	int i,j;
 	float dx, dy, rr;
@@ -314,7 +314,7 @@ void draw_circle(point centre, int rayon, COULEUR color) {
 	if (SDL_AFFICHE_AUTO) affiche_all();
 }
 
-void draw_fill_circle(point centre, int rayon, COULEUR color) {
+void draw_fill_circle(point centre, int rayon, couleur color) {
 	point min, max;
 	int i,j;
 	float dx, dy, rr;
@@ -334,17 +334,24 @@ void draw_fill_circle(point centre, int rayon, COULEUR color) {
 	if (SDL_AFFICHE_AUTO) affiche_all();
 }
 
-void draw_square(point p, int taille, COULEUR color) {
+void draw_square(point p, int taille, couleur color) {
 	point p1 = {p.x-taille/2, p.y-taille/2}, p2 = {p.x+taille/2, p.y+taille/2};
 	draw_rectangle(p1, p2, color);
 }
 
-void draw_fill_square(point p, int taille, COULEUR color) {
+void draw_fill_square(point p, int taille, couleur color) {
 	point p1 = {p.x-taille/2, p.y-taille/2}, p2 = {p.x+taille/2, p.y+taille/2};
 	draw_fill_rectangle(p1, p2, color);
 }
 
-void aff_pol(char *a_ecrire, int taille, point p, COULEUR C) {
+void draw_cross(point p, int taille, couleur color) {
+	point p1 = {p.x-taille/2, p.y-taille/2}, p2 = {p.x+taille/2, p.y+taille/2};
+	point p3 = {p.x-taille/2, p.y+taille/2}, p4 = {p.x+taille/2, p.y-taille/2};
+	draw_line(p1, p2, color);
+	draw_line(p3, p4, color);
+}
+
+void aff_pol(char *a_ecrire, int taille, point p, couleur C) {
 	#ifdef SDL_TTF_OK
 	    int i;
 	    SDL_Color color;
@@ -388,7 +395,7 @@ void aff_pol(char *a_ecrire, int taille, point p, COULEUR C) {
 
 
 
-void aff_int(int n,  int taille, point p, COULEUR C) {
+void aff_int(int n,  int taille, point p, couleur C) {
 	char s[32];
 	sprintf(s,"%d",n);
 	aff_pol(s,taille,p,C);
