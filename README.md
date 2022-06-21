@@ -1,3 +1,3 @@
-# morpion
+# Morpion
 
-jeu de morpion en c avec sdl
+Jeu de morpion avec plusieurs variantes créées par moi même.
