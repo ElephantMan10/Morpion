@@ -56,7 +56,7 @@ void init_graphics(int W, int H) {
 		printf("SDL_ttf absent : affichage dans la console.\n");
 	#endif
 	
-	fill_screen(noir);
+	fill_screen(white);
 	affiche_auto_on();
 	affiche_all();
 
