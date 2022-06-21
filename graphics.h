@@ -43,6 +43,7 @@ point wait_clic();
 void fill_screen(couleur color);
 void draw_pixel(point p, couleur color);
 void draw_line(point p1, point p2, couleur color);
+void draw_big_line(point p1, point p2, couleur color);
 void draw_rectangle(point p1, point p2, couleur color);
 void draw_fill_rectangle(point p1, point p2, couleur color);
 void draw_circle(point centre, int rayon, couleur color);

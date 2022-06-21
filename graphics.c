@@ -37,7 +37,7 @@ void init_graphics(int W, int H) {
 	
 	SDL_EnableKeyRepeat(1,0);
 	
-	SDL_WM_SetCaption("Puissance 4!!",NULL);
+	SDL_WM_SetCaption("Morpion !!",NULL);
 	
 	__init_graphics_is_already_called = 25;
 	printf("Fenetre de %d x %d\n",WIDTH,HEIGHT);
@@ -56,7 +56,7 @@ void init_graphics(int W, int H) {
 		printf("SDL_ttf absent : affichage dans la console.\n");
 	#endif
 	
-	fill_screen(white);
+	fill_screen(black);
 	affiche_auto_on();
 	affiche_all();
 
@@ -256,6 +256,19 @@ void draw_line(point p1, point p2, couleur color) {
         }
     }
 	if (SDL_AFFICHE_AUTO) affiche_all();
+}
+
+void draw_big_line(point p1, point p2, couleur color) {
+	draw_line(p1, p2, color);
+	p1.x = p1.x-1;p2.x = p2.x-1;
+	draw_line(p1, p2, color);
+	p1.x = p1.x+2;p2.x = p2.x+2;
+	draw_line(p1, p2, color);
+	p1.x = p1.x-1;p2.x = p2.x-1;
+	p1.y = p1.y-1;p2.y = p2.y-1;
+	draw_line(p1, p2, color);
+	p1.y = p1.y+2;p2.y = p2.y+2;
+	draw_line(p1, p2, color);
 }
 
 void draw_rectangle(point p1, point p2, couleur color) {

@@ -2,14 +2,28 @@
 #define JEU_H
 #include "graphics.h"
 
-void init_board(int[10][10]);
+void menu();
 
-void draw_board(int[10][10]);
+void init_board(int[15][15], int);
 
-void draw_player(int[10][10] ,int, int);
+void draw_board(int[15][15], int);
 
-void play(int[10][10]);
+void draw_player(int[15][15] ,int, int);
 
-int fin(int[10][10], int*);
+void play(int[15][15], int*, int, int);
+
+int end(int[15][15], int*, int, int);
+
+int replay(int winner);
+
+void menu();
+
+int test_x(int[15][15], int, int, int);
+
+int test_y(int[15][15], int, int, int);
+
+int test_xy(int[15][15], int, int, int);
+
+int test_yx(int[15][15], int, int, int);
 
 #endif
