@@ -4,15 +4,15 @@
 
 void menu();
 
-void init_board(int[15][15], int);
+void init_board(int[15][15], int, int);
 
-void draw_board(int[15][15], int);
+void draw_board(int[15][15], int, int);
 
 void draw_player(int[15][15] ,int, int);
 
-void play(int[15][15], int*, int, int);
+void play(int[15][15], int*, int, int, int);
 
-int end(int[15][15], int*, int, int);
+int end(int[15][15], int*, int, int, int);
 
 int replay(int winner);
 
