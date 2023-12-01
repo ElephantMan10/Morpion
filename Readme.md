@@ -1,4 +1,4 @@
-# Introduction
+# Introduction (english below)
 
 ## Tic-Tac-Toe
 
@@ -20,7 +20,7 @@ Dans cette variante, les joueurs s'affrontent dans une grille de taille 15x15 (c
 Dans cette variante, les joueurs s'affrontent dans une grille de taille 7x6 (comme son nom l'indique) et doivent créer un alignement de 4 symboles (les mêmes que pour le Tic-Tac-Toe).
 Pour cette variante, je me suis tout simplement inspiré d'un *Puissance 4* (que j'ai egalement codé).
 
-## Installation
+# Installation
 
 Tout d'abord, verifiez que vous avez bien les bibliothèques sdl et sdl_ttf installées.
 Sinon tapez les commandes : `sudo apt-get install libsdl1.2-dev` et `sudo apt-get install libsdl-ttf1.2-dev`.
@@ -46,6 +46,6 @@ In this variant, players compete on a 15x15 grid (as the name suggests) and must
 
 In this variant, players compete on a 7x6 grid (as the name suggests) and must create an alignment of 4 symbols (the same as in Tic-Tac-Toe). For this variant, I took inspiration from Connect Four (which I also coded).
 
-## Installation
+# Installation
 
 First, make sure you have the SDL and SDL_ttf libraries installed. If not, run the following commands: ``sudo apt-get install libsdl1.2-dev libsdl-ttf1.2-dev`` (may chage depending on your OS). Then, at the root of the project, run: ``make && make jeu``. Finally, execute the ``morpion`` file.
